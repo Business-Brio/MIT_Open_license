@@ -9,8 +9,11 @@ on basis of two groups.
 
 It is applicable for many uscases.
 Lets say a dataset has three columns:
+
  1.Salesman id (having more than one level e.g. 36, PQ23, N2Z4, etc.).
+ 
  2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfiled cases and 1 for fulfiled cases).
+ 
  3.Type of market (only two levels i.e. two types of market e.g. urban, rural ).
 
 
