@@ -112,21 +112,25 @@ N.B: 1.'urban' and 'rural' are the two levels of arg4
 
 Useful links and licenses:
 
-**You can find the example datasheet from this link**:https://github.com/bhargabganguli/business_brio/blob/main/Test_Data.csv
+**You can find the example datasheet from this link**:
+https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/performance_rank_discrete/Test_Data.csv
 
-**You can see the output from this link (output is shown in text file)**: https://github.com/bhargabganguli/business_brio/blob/main/test_result.txt
+**You can see the output from this link (output is shown in text file)**: 
+https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/performance_rank_discrete/performance_rank_discrete_test_result.txt
  
-You can also see the tested python file : https://github.com/bhargabganguli/business_brio/blob/main/test_code.py
+You can also see the tested python file : 
+https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/performance_rank_discrete/performance_rank_discrete_test_code.py
 
-Source code:https://github.com/bhargabganguli/business_brio.git
+Source code:https://github.com/Business-Brio/MIT_Open_license/tree/main/business_brio/performance_rank_discrete
 
-Bug reports: https://github.com/bhargabganguli/business_brio/issues
+Bug reports:https://github.com/Business-Brio/MIT_Open_license/issues
+
 
 
 License
-Â© 2022 Bhargab Ganguli
+Â© 2022 Business Brio
 
 This repository is licensed under the MIT license. 
-See at   https://github.com/bhargabganguli/business_brio/blob/main/README.md   for details.
+See at   https://github.com/Business-Brio/MIT_Open_license/blob/main/LICENSE   for details.
 
 
