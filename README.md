@@ -1,8 +1,8 @@
-# business_brio
+# business_brio_package
 **business_brio** (pronounced “Business Brio”) is an open-source python package which contains sub-module named 'performance_rank_discrete'
 This submodule has one class named 'test' and this has one method named 'result'.
 
-This sub-module of the package(business_brio) will help you to get interpretation of several associates' performance (good or bad) 
+This sub-module of the package(business_brio_package) will help you to get interpretation of several associates' performance (good or bad) 
 on basis of two groups.
 
 ## How the dataset should be?
@@ -20,12 +20,12 @@ Lets say a dataset has three columns:
 ## How to install our package?
 
 ```
-pip install business_brio
+pip install business_brio_package
 ```
 
 ## how to import and see the desired output?
 ```
-from business_brio import performance_rank_discrete
+from business_brio_package import performance_rank_discrete
 obj=performance_rank_discrete.test(arg1, arg2, arg3, arg4)
 table,intpret=obj.result(n=20)
 print(intpret)
@@ -74,7 +74,7 @@ when you are calling the result method from the object you created then you have
 
 For example:
 ```
-from business_brio import performance_rank_discrete
+from business_brio_package import performance_rank_discrete
 obj=performance_rank_discrete.test(df,"salesman","saleflag","market")
 table,intpret=obj.result(n=20)
 print("Interpreted result:")
