@@ -7,7 +7,7 @@ on basis of two groups.
 
 ## How the dataset should be?
 
-It is applicable for many uscases.
+It is applicable for many usecases.
 Lets say a dataset has three columns:
 
  1.Salesman id (having more than one level e.g. 36, PQ23, N2Z4, etc.).
