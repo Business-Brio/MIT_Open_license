@@ -31,7 +31,7 @@ table,intpret=obj.result(n=20)
 print(intpret)
 print(table)
 ```
-## Arguments of the method chitest_rs.ChiTest2(arg1, arg2, arg3, arg4):
+## Arguments of the method performance_rank_discrete.test(arg1, arg2, arg3, arg4):
 
 **It takes four inputs:**
 
