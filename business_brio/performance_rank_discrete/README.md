@@ -8,11 +8,11 @@ on basis of two groups.
 ## How the dataset should be?
 
 It is applicable for many use cases.
-Lets say a dataset has three columns:
+Let's say a dataset has three columns:
 
  1.Salesman id (having more than one level e.g. 36, PQ23, N2Z4, etc.).
  
- 2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfiled cases and 1 for fulfilled cases).
+ 2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfilled cases and 1 for fulfilled cases).
  
  3.Type of market (only two levels i.e. two types of market e.g. urban, rural ).
 
@@ -39,7 +39,7 @@ print(table)
 
 **arg2. Associate categorical column name (more than one level)**
 
-**arg3. Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfiled and 1 refers fulfiled)**
+**arg3. Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfilled and 1 refers fulfilled)**
 
 **arg4. Group column name (should have two levels i.e. two group names)**
 
@@ -61,11 +61,11 @@ the table dictionary will have four sub-groups
 
 Each of these will have columns like, 
 -individual associate
--actual unfulfiled of that associate
--actual fulfiled of that associate
--expected fulfiled of that associate
--chi value of each associate on basis of actual and expected fulfiled
--fulfiled percentage ((actual fulfiled/(actual fulfiled+actual unfulfiled))*100)
+-actual unfulfilled of that associate
+-actual fulfilled of that associate
+-expected fulfilled of that associate
+-chi value of each associate on basis of actual and expected fulfilled
+-fulfilled percentage ((actual fulfilled/(actual fulfilled+actual unfulfilled))*100)
 
 
 
