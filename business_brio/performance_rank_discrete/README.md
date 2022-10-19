@@ -51,9 +51,9 @@ the column names (arg2, arg3, arg4) must be passed as string (inside double inve
 
 **return2: interpretation**
 
-both outputs are dictionary type.
+both outputs are "dictionary" type of python variable.
 
-the table dictionary will have four sub-groups 
+the table will have four sub-groups 
 1.Good performers in group1 of arg4
 2.Bad performers in group1 of arg4
 3.Good performers in group2 of arg4
