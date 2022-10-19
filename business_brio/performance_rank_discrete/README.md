@@ -7,12 +7,12 @@ on basis of two groups.
 
 ## How the dataset should be?
 
-It is applicable for many usecases.
+It is applicable for many use cases.
 Lets say a dataset has three columns:
 
  1.Salesman id (having more than one level e.g. 36, PQ23, N2Z4, etc.).
  
- 2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfiled cases and 1 for fulfiled cases).
+ 2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfiled cases and 1 for fulfilled cases).
  
  3.Type of market (only two levels i.e. two types of market e.g. urban, rural ).
 
