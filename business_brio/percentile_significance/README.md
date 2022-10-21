@@ -135,11 +135,12 @@ So, for the above given example odds ratio = Positive cases * Negative cases
 
 This positive and negative case means,
 
-\frac{(Frequency of smaller percentile of Mac\_A\*frequencyof greater percentile of Mac\_B)!}{(Frequency of greater percentile of Mac\_A\*frequencyof smaller percentile of Mac\_B)
-}
+(Frequency of smaller percentile of Mac_A*frequencyof greater percentile of Mac_B)(Frequency of greater percentile of Mac_A*frequency of smaller percentile of Mac_B)
+
+
 i.e. basically from the example table:
 
-5\*49\*6
+(5*4)/(9*6)
 
 =2054
 
