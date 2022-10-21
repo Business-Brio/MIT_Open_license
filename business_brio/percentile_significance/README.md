@@ -1,4 +1,4 @@
-percentile\_significance
+# percentile\_significance
 
 business\_brio (pronounced “Business Brio”) is an open-source python package which contains sub-module named 'percentile\_significance'.
 
@@ -19,6 +19,7 @@ It is applicable for many use cases. Let’s say a dataset has two columns:
 
 How to install our package?
 
+```
 pip install business\_brio
 
 How to import and see the desired outputs?
@@ -32,6 +33,8 @@ print(obj.result())
 Instead of direct result you can get only the pvalue by this way:
 
 print(obj.pvalue())
+
+```
 
 
 Instead of direct result you can get only the odds ratio value by this way:
