@@ -155,7 +155,9 @@ It means there is a considerable probability that the odds ratio might be equal 
 
 And we know if odds ratio is 1 or close to 1 it means that there isn’t any difference between positive and negative cases.
 
-So, this makes a conclusion that two groups of machines Mac\_A and Mac\_B has no significant impact on the cycle time. 
+So, this makes a conclusion that two groups of machines Mac\_A and Mac\_B has no significant impact on the cycle time at the given percentile. 
+
+
 
 Errors:
 
