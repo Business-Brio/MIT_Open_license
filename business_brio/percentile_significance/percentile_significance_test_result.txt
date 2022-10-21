@@ -1,0 +1,8 @@
+contigency table:
+x                         A  B
+y                             
+greater_equal_percentile  5  9
+smaller_percentile        6  4 
+p value:0.4080966482702929 
+odds value:
+0.37037037037037035
