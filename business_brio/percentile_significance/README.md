@@ -140,7 +140,7 @@ This positive and negative case means,
 
 So, basically from the example table:
 
-=(5*4)/(9*6)
+=(5\*4)/(9\*6)
 
 =20/54
 
