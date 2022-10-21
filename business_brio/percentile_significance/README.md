@@ -1,131 +1,157 @@
-# business_brio
-**business_brio** (pronounced “Business Brio”) is an open-source python package which contains sub-module named 'performance_rank_discrete'
-This submodule has one class named 'test' and this has one method named 'result'.
+percentile\_significance
 
-This sub-module of the package(business_brio) will help you to get interpretation of several associates' performance (good or bad) 
-on basis of two groups.
+business\_brio (pronounced “Business Brio”) is an open-source python package which contains sub-module named 'percentile\_significance'.
 
-## How the dataset should be?
+This submodule has one class named 'test' and this has more than one method named 'result','pvalue','odds','cont\_table'.
 
-It is applicable for many uscases.
-Lets say a dataset has three columns:
+This sub-module (percentile\_significance) of the package (business\_brio) will help you to perform a hypothesis test where you will find whether two different groups are significantly impacting another parameter value at a given percentile.
 
- 1.Salesman id (having more than one level e.g. 36, PQ23, N2Z4, etc.).
- 
- 2.Saleflag i.e. 0 and 1 where 0 refers unsold and 1 refers sold (this may be 0 for unfulfiled cases and 1 for fulfiled cases).
- 
- 3.Type of market (only two levels i.e. two types of market e.g. urban, rural ).
+Let’s express a function as y=f(x), where the y variable is a continuous data type column and x is discrete data type column having only two levels or groups. There we can apply this submodule and its functions to check significance of those groups or levels of x variable on the value of y variable at a particular percentile value.
+
+This is helpful to avoid the limitation of checking significance at only median or mean. Because it gives opportunity to check significant impact at any percentile value.
+
+How the dataset should be?
+
+It is applicable for many use cases. Let’s say a dataset has two columns:
+
+1. Machine type (having two levels  e.g. mc\_A, mc\_B).
+1. Cycle\_time (this is a continuous data column having values). This is data of time taken for each items to be produced by any of these two machines mc\_A or mc\_B.
+
+How to install our package?
+
+pip install business\_brio
+
+How to import and see the desired outputs?
+
+from business\_brio import percentile\_significance
+
+obj=percentile\_significance.test(arg1, arg2, arg3)
+
+print(obj.result())
+
+Instead of direct result you can get only the pvalue by this way:
+
+print(obj.pvalue())
 
 
-## How to install our package?
+Instead of direct result you can get only the odds ratio value by this way:
 
-```
-pip install business_brio
-```
+print(obj.odds())
 
-## how to import and see the desired output?
-```
-from business_brio import performance_rank_discrete
-obj=performance_rank_discrete.test(arg1, arg2, arg3, arg4)
-table,intpret=obj.result(n=20)
-print(intpret)
-print(table)
-```
-## Arguments of the method chitest_rs.ChiTest2(arg1, arg2, arg3, arg4):
+Instead of direct result you can get only the contingency by this way:
 
-**It takes four inputs:**
-
-**arg1. a dataframe with minimum three columns for input**
-
-**arg2. Associate categorical column name (more than one level)**
-
-**arg3. Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfiled and 1 refers fulfiled)**
-
-**arg4. Group column name (should have two levels i.e. two group names)**
-
-the column names (arg2, arg3, arg4) must be passed as string (inside double inverted commas)
-
-**It returns two objects:**
-
-**return1: table**
-
-**return2: interpretation**
-
-both outputs are dictionary type.
-
-the table dictionary will have four sub-groups 
-1.Good performers in group1 of arg4
-2.Bad performers in group1 of arg4
-3.Good performers in group2 of arg4
-4.Bad performers in group2 of arg4
-
-Each of these will have columns like, 
--individual associate
--actual unfulfiled of that associate
--actual fulfiled of that associate
--expected fulfiled of that associate
--chi value of each associate on basis of actual and expected fulfiled
--fulfiled percentage ((actual fulfiled/(actual fulfiled+actual unfulfiled))*100)
+print(obj.cont\_table())
 
 
 
-when you are calling the result method from the object you created then you have one optional argument to pass in this method which will decide the percentage of Top and Bottom associates in each group. 
-**(by default this percentage is set to 30% )**.
+Arguments of the method percentile\_significance.test(arg1, arg2, arg3):
 
-For example:
-```
-from business_brio import performance_rank_discrete
-obj=performance_rank_discrete.test(df,"salesman","saleflag","market")
-table,intpret=obj.result(n=20)
-print("Interpreted result:")
-print(intpret)
-print("table result:")
-print(table)
-```
-In this above code you will get interpretation of the salesman performance like 
+It takes three arguments:
 
-Associates good in both urban and rural
+Arg1: A categorical column (two levels)
 
-Associates bad in both urban and rural
+Arg2: Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfilled and 1 refers fulfilled)
 
-Top 20% Associates in urban
+Arg3: Group column name (should have two levels i.e. two group names)
 
-Bottom 20% Associates in urban.
+It returns a result report having p-value, a contingency table and odds value:
 
-Top 20% Associates in rural
+Return: result
 
-Bottom 20% Associates in rural.
+On the basis of p-value you can choose a hypothesis statement of any two of the following:
 
-N.B: 1.'urban' and 'rural' are the two levels of arg4
-     2. 'df' is the name of the dataframe having columns "salesman", "saleflag", "market".
+Null Hypothesis: Two levels of arg1 has no significantly impact on arg2 at given percentile value.
 
-   
-## Errors:
- 
- If you are getting error messages. Please check the following:
- Whether the arg1 passed is dataframe with no null or not
- Whether the arg2 is name of the salesman column which has more than one levels ( multiple unique names or entries ).
- Whether the arg3 is name of the saleflag column which has only two levels ( only two unique name or entries 0 refers unsold and 1 refers sold).
- Whether the arg4 is name of the group column which has only two levels ( only two unique names or entries ).
+Alternate Hypothesis: Two levels of arg1 has significantly impact on arg2 at given percentile value.
+
+Internal process of the submodule class:
+
+Basically we are calculating the percentile value of the arg2.
+
+We are splitting values of arg2 into two levels or groups
+\- greater equal percentile (values greater or equal to the percentile value) 
+\- smaller percentile (values less than the percentile value) 
+
+Now we will create a contingency table to find frequency of each group of arg1 and these two newly created levels of arg2 column.
+
+Now we will apply Fisher’s exact test on the contingency table.
+
+This will return p-value, odds ratio
+
+This p-value is basically applicable to 
+
+Ho (null hypothesis): The odds ratio is equal to 1
+Ha (alternate hypothesis): The odds ratio is not equal to 1
+
+The odds ratio tells us how many times more positive cases can happen than negative cases.
+
+This positive and negative cases is explained in the below example section.
+
+EXAMPLE:
+
+from business\_brio import percentile\_significance
+
+obj=percentile\_significance.test(df[“machine”],df[“cycle\_time”],0.4)
+
+print(obj.result())
 
 
+In this above code you will get a contingency table:
+
+||X|
+| :- | :-: |
+|Y|Mac\_A|Mac\_B|
+|Greater\_equal\_percentile|5|9|
+|Smaller\_percentile|6|4|
+
+The p-value: 0.408096642702929
+
+The odds value: 0.37037037037037035
+
+N.B: 'df' is the name of the dataframe having columns "machine", "cycle\_time".
+
+From the p-value we will accept null hypothesis (with confidence interval of 95%).
+
+So, the two groups of machine (Mac\_A, Mac\_B) has no significant impact on cycle time.
+
+For mathematical concepts read this section:
+
+Actually this p-value of the exact fisher’s test is valid for the following hypothesis:
+
+Ho (null hypothesis): The odds ratio is equal to 1
+Ha (alternate hypothesis): The odds ratio is not equal to 1
+
+As said early, the odds ratio tells us how many times more positive cases can happen than negative cases. 
+
+So, for the above given example odds ratio =
+
+Positive casesNegative cases
+
+This positive and negative case means,
+
+` `Frequency of smaller percentile of Mac\_A\*frequencyof greater percentile of Mac\_BFrequency of greater percentile of Mac\_A\*frequencyof smaller percentile of Mac\_B
+
+i.e. basically from the example table:
+
+5\*49\*6
+
+=2054
+
+=0.37037
+
+
+So, if for your dataset if p value returned is 1.000, then it shows with the probability of (1- 1) 0%, the odds ratio will not be equal to 1 and with the probability of 100%, the odds ratio will equal 1. 
+
+If we set our confidence level at 95% percentage because 1.00 is higher than 0.05 (1- 0.95). We accept the null hypothesis. 
+
+It means there is a considerable probability that the odds ratio might be equal to 1 in the population (other untested cycle times). 
+
+And we know if odds ratio is 1 or close to 1 it means that there isn’t any difference between positive and negative cases.
+
+So, this makes a conclusion that two groups of machines Mac\_A and Mac\_B has no significant impact on the cycle time. 
+
+Errors:
+
+If you are getting error messages. Please check the following: Whether the arg1 passed is dataframe with no null or not Whether the arg2 is name of the salesman column which has more than one levels ( multiple unique names or entries ). Whether the arg3 is name of the saleflag column which has only two levels ( only two unique name or entries 0 refers unsold and 1 refers sold). Whether the arg4 is name of the group column which has only two levels (only two unique names or entries ).
 
 Useful links and licenses:
-
-**You can find the example datasheet from this link**:https://github.com/bhargabganguli/business_brio/blob/main/Test_Data.csv
-
-**You can see the output from this link (output is shown in text file)**: https://github.com/bhargabganguli/business_brio/blob/main/test_result.txt
- 
-You can also see the tested python file : https://github.com/bhargabganguli/business_brio/blob/main/test_code.py
-
-Source code:https://github.com/bhargabganguli/business_brio.git
-
-Bug reports: https://github.com/bhargabganguli/business_brio/issues
-
-
-License
-Â© 2022 Bhargab Ganguli
-
-This repository is licensed under the MIT license. 
-See at   https://github.com/bhargabganguli/business_brio/blob/main/README.md   for details.
-
