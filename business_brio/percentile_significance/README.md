@@ -164,3 +164,23 @@ Errors:
 If you are getting error messages. Please check the following: Whether the arg1 passed is dataframe with no null or not Whether the arg2 is name of the salesman column which has more than one levels ( multiple unique names or entries ). Whether the arg3 is name of the saleflag column which has only two levels ( only two unique name or entries 0 refers unsold and 1 refers sold). Whether the arg4 is name of the group column which has only two levels (only two unique names or entries ).
 
 Useful links and licenses:
+
+**You can find the example datasheet from this link**:https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/percentile_significance/percentile_significance_Test_Data.csv
+
+
+ 
+You can also see the tested python file : https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/percentile_significance/percentile_significance_test_code.py
+
+**You can see the output from this link (output is shown in text file)**: https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/percentile_significance/percentile_significance_test_result.txt
+
+
+Source code:https://github.com/Business-Brio/MIT_Open_license/blob/main/business_brio/percentile_significance/percentile_significance.py
+
+Bug reports: https://github.com/Business-Brio/MIT_Open_license/issues
+
+
+License
+Â© 2022 Business Brio
+
+This repository is licensed under the MIT license. 
+See at   https://github.com/Business-Brio/MIT_Open_license/blob/main/LICENSE   for details.
