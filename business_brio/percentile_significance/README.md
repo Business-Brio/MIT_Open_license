@@ -131,14 +131,12 @@ Ha (alternate hypothesis): The odds ratio is not equal to 1
 
 As said early, the odds ratio tells us how many times more positive cases can happen than negative cases. 
 
-So, for the above given example odds ratio =
-
-Positive casesNegative cases
+So, for the above given example odds ratio = Positive cases * Negative cases
 
 This positive and negative case means,
 
-` `Frequency of smaller percentile of Mac\_A\*frequencyof greater percentile of Mac\_BFrequency of greater percentile of Mac\_A\*frequencyof smaller percentile of Mac\_B
-
+\frac{(Frequency of smaller percentile of Mac\_A\*frequencyof greater percentile of Mac\_B)}{(Frequency of greater percentile of Mac\_A\*frequencyof smaller percentile of Mac\_B)
+}
 i.e. basically from the example table:
 
 5\*49\*6
