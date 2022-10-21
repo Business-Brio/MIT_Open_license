@@ -2,82 +2,86 @@
 
 business\_brio (pronounced “Business Brio”) is an open-source python package which contains sub-module named 'percentile\_significance'.
 
-This submodule has one class named 'test' and this has more than one method named 'result','pvalue','odds','cont\_table'.
+This submodule has one class named 'test' and this has more than one methods which are- 'result','pvalue','odds','cont\_table'.
 
 This sub-module (percentile\_significance) of the package (business\_brio) will help you to perform a hypothesis test where you will find whether two different groups are significantly impacting another parameter value at a given percentile.
 
 Let’s express a function as y=f(x), where the y variable is a continuous data type column and x is discrete data type column having only two levels or groups. There we can apply this submodule and its functions to check significance of those groups or levels of x variable on the value of y variable at a particular percentile value.
 
-This is helpful to avoid the limitation of checking significance at only median or mean. Because it gives opportunity to check significant impact at any percentile value.
+This is helpful to avoid the limitation of checking significance of two groups at only median or mean. Because it gives opportunity to check significant impact at any percentile value.
 
-How the dataset should be?
+# How the dataset should be?
 
 It is applicable for many use cases. Let’s say a dataset has two columns:
 
 1. Machine type (having two levels  e.g. mc\_A, mc\_B).
 1. Cycle\_time (this is a continuous data column having values). This is data of time taken for each items to be produced by any of these two machines mc\_A or mc\_B.
 
-How to install our package?
+# How to install our package?
 
 ```
 pip install business\_brio
+```
 
-How to import and see the desired outputs?
+# How to import and see the desired outputs?
 
+```
 from business\_brio import percentile\_significance
 
 obj=percentile\_significance.test(arg1, arg2, arg3)
 
 print(obj.result())
 
-Instead of direct result you can get only the pvalue by this way:
+#Instead of direct result you can get only the pvalue by this way:
 
 print(obj.pvalue())
+
+#Instead of direct result you can get only the odds ratio value by this way:
+
+print(obj.odds())
+
+#Instead of direct result you can get only the contingency by this way:
+
+print(obj.cont\_table())
 
 ```
 
 
-Instead of direct result you can get only the odds ratio value by this way:
-
-print(obj.odds())
-
-Instead of direct result you can get only the contingency by this way:
-
-print(obj.cont\_table())
-
-
-
-Arguments of the method percentile\_significance.test(arg1, arg2, arg3):
+# Arguments of the method test under the sub-module named percentile\_significance:
 
 It takes three arguments:
 
-Arg1: A categorical column (two levels)
+arg1: A categorical column (two levels)
 
-Arg2: Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfilled and 1 refers fulfilled)
+arg2: Output categorical column name (should have two levels 0 and 1. Where 0 refers unfulfilled and 1 refers fulfilled)
 
-Arg3: Group column name (should have two levels i.e. two group names)
+arg3: Group column name (should have two levels i.e. two group names)
 
-It returns a result report having p-value, a contingency table and odds value:
+Next 'result' named method is called,
+```
+print(obj.result())
+```
+It returns the result having p-value, a contingency table and odds value:
 
-Return: result
 
 On the basis of p-value you can choose a hypothesis statement of any two of the following:
 
-Null Hypothesis: Two levels of arg1 has no significantly impact on arg2 at given percentile value.
+**Null Hypothesis: Two levels of arg1 has no significantly impact on arg2 at given percentile value.
 
-Alternate Hypothesis: Two levels of arg1 has significantly impact on arg2 at given percentile value.
+**Alternate Hypothesis: Two levels of arg1 has significantly impact on arg2 at given percentile value.
 
-Internal process of the submodule class:
 
-Basically we are calculating the percentile value of the arg2.
+# How this submodule is working (internal steps)?
 
-We are splitting values of arg2 into two levels or groups
-\- greater equal percentile (values greater or equal to the percentile value) 
-\- smaller percentile (values less than the percentile value) 
+Step1: Basically we are calculating the percentile value of the arg2.
 
-Now we will create a contingency table to find frequency of each group of arg1 and these two newly created levels of arg2 column.
+Step2: We are splitting values of arg2 into two levels or groups
+       \- greater equal percentile (values greater or equal to the percentile value) 
+       \- smaller percentile (values less than the percentile value) 
 
-Now we will apply Fisher’s exact test on the contingency table.
+Step3: Now we will create a contingency table to find frequency of each group of arg1 and these two newly created levels of arg2 column.
+
+Step4: Now we will apply Fisher’s exact test on the contingency table.
 
 This will return p-value, odds ratio
 
@@ -90,12 +94,12 @@ The odds ratio tells us how many times more positive cases can happen than negat
 
 This positive and negative cases is explained in the below example section.
 
-EXAMPLE:
+
+
+# EXAMPLE:
 
 from business\_brio import percentile\_significance
-
 obj=percentile\_significance.test(df[“machine”],df[“cycle\_time”],0.4)
-
 print(obj.result())
 
 
@@ -113,11 +117,12 @@ The odds value: 0.37037037037037035
 
 N.B: 'df' is the name of the dataframe having columns "machine", "cycle\_time".
 
-From the p-value we will accept null hypothesis (with confidence interval of 95%).
-
+**Inference:
+From the above p-value we will accept null hypothesis (with confidence interval of 95%).
 So, the two groups of machine (Mac\_A, Mac\_B) has no significant impact on cycle time.
 
-For mathematical concepts read this section:
+
+For statistical evidence read this section:
 
 Actually this p-value of the exact fisher’s test is valid for the following hypothesis:
 
