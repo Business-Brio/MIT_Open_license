@@ -2,6 +2,11 @@
 **business_brio** (pronounced “Business Brio”) is an open-source python package which contains several sub-modules. These submodules have several methods which help us in mathematics, engineering, data science projects.
 
 
+How to install this package?
+```
+!pip install business_brio_package
+```
+
 License
 Â© 2022 Business Brio
 
